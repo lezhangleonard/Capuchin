@@ -60,9 +60,9 @@ Due to the hardware constraints of MSP430, the C implementation should meet the 
 [MNIST](examples/MNIST_uDNN_Capuchin.ipynb)
 [CIFAR-10](examples/CIFAR_10_uDNN_Capuchin.ipynb)
 ## Contact
-Le Zhang - Email: lezhang at unc.edu
+Leonard Zhang - Email: leonard at lezh.me
 
-Project Link: https://github.com/leleonardzhang/Capuchin
+Project Link: https://github.com/lezhangleonard/Capuchin
 
 ## Acknowledgement
 This project is built on the framework of <a href="https://github.com/tejaskannan/budget-rnn">budget-RNN</a>.
