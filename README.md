@@ -71,7 +71,7 @@ T. Kannan and H. Hoffmann, "Budget RNNs: Multi-Capacity Neural Networks to Impro
 
 ## Cite This
 
-'''
+```
 @inproceedings{zhang2022demo,
   title={Demo Abstract: Capuchin: A Neural Network Model Generator for 16-bit Microcontrollers},
   author={Zhang, Le and Luo, Yubo and Nirjon, Shahriar},
@@ -80,4 +80,4 @@ T. Kannan and H. Hoffmann, "Budget RNNs: Multi-Capacity Neural Networks to Impro
   year={2022},
   organization={IEEE}
 }
-'''
+```
