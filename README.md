@@ -14,7 +14,7 @@ Disclaim: the following dependencies are only author's recommended setup. This p
 + numpy=1.19.5
 + TI Code Composer Studio (recommended to debug as this project only simulates input and output rather than connecting to actual sensors)
 ### Installation
-`git clone https://github.com/leleonardzhang/Capuchin.git`
+`git clone https://github.com/lezhangleonard/Capuchin.git`
 ### Executing the Program
 #### Using Python Interface
 1. Copy `encoder.py` into the same directory of your Python uDNN implementation program.
