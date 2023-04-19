@@ -12,9 +12,10 @@ Disclaim: the following dependencies are only author's recommended setup. This p
 + keras=2.6.0
 + fxpmath=0.4.0
 + numpy=1.19.5
-+ TI Code Composer Studio (recommended to debug as this project only simulates input and output rather than connecting to actual sensors)
++ TI Code Composer Studio (recommended to debug, since this project only simulates input and output rather than connecting to actual sensors)
 ### Installation
 `git clone https://github.com/lezhangleonard/Capuchin.git`
+<del>`git clone https://github.com/leleonardzhang/Capuchin.git`</del> (obsolete repo & account)
 ### Executing the Program
 #### Using Python Interface
 1. Copy `encoder.py` into the same directory of your Python uDNN implementation program.
@@ -57,19 +58,18 @@ Due to the hardware constraints of MSP430, the C implementation should meet the 
 + `LEA_RAM_SIZE <= 1.8K` (LEA SRAM volatile memory constraint)
 + `LENGTH_OF_ANY_LAYER_OUTPUT <= 16384` (FRAM persistent memory constraint)
 ## Examples
-[MNIST](examples/MNIST_uDNN_Capuchin.ipynb)
-[CIFAR-10](examples/CIFAR_10_uDNN_Capuchin.ipynb)
+(To be updated)
 ## Contact
-Leonard Zhang - Email: leonard at lezh.me
+Le (Leonard) Zhang - Email: le-zhang at ucsd.edu
 
 Project Link: https://github.com/lezhangleonard/Capuchin
 
 ## Acknowledgement
-This project is built on the framework of <a href="https://github.com/tejaskannan/budget-rnn">budget-RNN</a>.
+This project is built on the top of <a href="https://github.com/tejaskannan/budget-rnn">budget-RNN</a>.
 
 T. Kannan and H. Hoffmann, "Budget RNNs: Multi-Capacity Neural Networks to Improve In-Sensor Inference Under Energy Budgets," 2021 IEEE 27th Real-Time and Embedded Technology and Applications Symposium (RTAS), 2021, pp. 143-156, doi: <a href="https://doi.org/10.1109/RTAS52030.2021.00020">10.1109/RTAS52030.2021.00020</a>.
 
-## Cite This
+## Cite Our Paper
 
 ```
 @inproceedings{zhang2022demo,
