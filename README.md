@@ -8,8 +8,8 @@ This project is made into two parts: a Python interface `encoder.py` and the mic
 ### Dependencies
 Disclaim: the following dependencies are only author's recommended setup. This project was tested under the following dependencies and verified as correct. This project may work under other versions of dependencies but the correctness may not be guaranteed.
 
-+ tensorflow=2.6.0
-+ keras=2.6.0
++ tensorflow=2.8.*
++ keras=2.8.*
 + fxpmath=0.4.0
 + numpy=1.19.5
 + TI Code Composer Studio (recommended to debug, since this project only simulates input and output rather than connecting to actual sensors)
