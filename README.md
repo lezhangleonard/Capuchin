@@ -10,8 +10,8 @@ Disclaim: the following dependencies are only author's recommended setup. This p
 
 + tensorflow=2.8.*
 + keras=2.8.*
-+ fxpmath=0.4.0
-+ numpy=1.19.5
++ fxpmath=0.4.8
++ numpy=1.25.2
 + TI Code Composer Studio (recommended to debug, since this project only simulates input and output rather than connecting to actual sensors)
 ### Installation
 `git clone https://github.com/lezhangleonard/Capuchin.git`
