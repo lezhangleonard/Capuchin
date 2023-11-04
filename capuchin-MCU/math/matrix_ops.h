@@ -24,6 +24,8 @@
 
 #define VECTOR_COLUMN(X)    ((X) * VECTOR_COLS)
 
+#define TAYLOR_SERIES_ITERATIONS 5
+
 
 //// For MSP implementations, we allocate memory in the LEA RAM.
 //// This memory is used when executing matrix multiplications.
@@ -45,6 +47,7 @@ matrix *vstack(matrix *result, matrix *mat1, matrix *mat2);
 int16_t dot_product(matrix *vec1, matrix *vec2, uint16_t precision);
 uint16_t *argsort(matrix *vec, uint16_t *result);
 matrix *sparsemax(matrix *result, matrix *vec, uint16_t precision);
+matrix *softmax(matrix *result, matrix *input, uint16_t precision, uint16_t shift);
 
 // Operations useful for various neural network functions
 int16_t argmax(matrix *vec);

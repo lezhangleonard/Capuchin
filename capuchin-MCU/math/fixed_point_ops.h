@@ -19,6 +19,8 @@
     int16_t convert_fp(int16_t x, uint16_t old_precision, uint16_t new_precision);
     int16_t float_to_fp(float x, uint16_t precision);
     int16_t int_to_fp(int16_t x, uint16_t precision);
+    int16_t fp_exp(int16_t x, uint16_t i, uint16_t precision);
+    int16_t fp_ln(int16_t x, uint16_t i, uint16_t precision);
 
     // 32 bit fixed point operations for improved precision. These are slightly more expensive
     // on 16 bit MCUs

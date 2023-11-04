@@ -167,6 +167,27 @@ int16_t fp_sigmoid(int16_t x, uint16_t precision) {
     return result;
 }
 
+int16_t fp_exp(int16_t x, uint16_t i, uint16_t precision){
+    int16_t k = 1, sum = (1 << precision), x_temp = x;
+    uint16_t j;
+    for (j = 1; j < i; j ++){
+        k *= j;
+        sum += x_temp / k;
+        x_temp = fp_mul(x_temp, x, precision);
+    }
+    return sum;
+}
+
+int16_t fp_ln(int16_t x, uint16_t i, uint16_t precision){
+    int16_t sum = 0, diff = 1024 - x, temp_x = 1024;
+    uint16_t j;
+    for (j = 1; j < i; j ++){
+        temp_x = fp_mul(temp_x, diff, precision);
+        sum += temp_x / j;
+    }
+    return -sum;
+}
+
 
 // 32 bit fixed-point operations
 int32_t fp32_add(int32_t x, int32_t y) {

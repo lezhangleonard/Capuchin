@@ -5,6 +5,7 @@
 #include "math/matrix.h"
 #include "init.h"
 #include "decoder/decoder.h"
+#include "layers/trainable.h"
 
 #ifndef MAIN_GUARD
 #define MAIN_GUARD
