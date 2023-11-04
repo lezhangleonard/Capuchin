@@ -2,8 +2,6 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-SHELL = cmd.exe
-
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../layers/layers.c 
@@ -15,10 +13,10 @@ OBJS += \
 ./layers/layers.obj 
 
 OBJS__QUOTED += \
-"layers\layers.obj" 
+"layers/layers.obj" 
 
 C_DEPS__QUOTED += \
-"layers\layers.d" 
+"layers/layers.d" 
 
 C_SRCS__QUOTED += \
 "../layers/layers.c" 
