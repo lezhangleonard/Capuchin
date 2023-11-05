@@ -772,11 +772,11 @@ matrix *softmax(matrix *result, matrix *input, uint16_t precision, uint16_t shif
     int16_t sum = 0;
     uint16_t i;
     for (i = input->numRows; i > 0; i --){
-        result->data[i - 1] = fp_exp(input->data[i - 1] >> shift, TAYLOR_SERIES_ITERATIONS, precision - shift);     // shift to avoid overflow
-        sum += result->data[i - 1];
+        result->data[(i - 1) << 1] = fp_exp(input->data[(i - 1) << 1] >> shift, TAYLOR_SERIES_ITERATIONS, precision - shift);     // shift to avoid overflow
+        sum += result->data[(i - 1) << 1];
     }
     for (i = input->numRows; i > 0; i --){
-        result->data[i - 1] = fp_div(result->data[i - 1], sum, precision);
+        result->data[(i - 1) << 1] = fp_div(result->data[(i - 1) << 1], sum, precision);
     }
     return result;
 }

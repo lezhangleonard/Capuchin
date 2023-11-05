@@ -1,7 +1,7 @@
 ******************************************************************************
                   MSP430 Linker Unix v21.6.1                   
 ******************************************************************************
->> Linked Sat Nov  4 18:16:14 2023
+>> Linked Sun Nov  5 00:52:14 2023
 
 OUTPUT FILE NAME:   <Capuchin-MCU.out>
 ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00008c00
@@ -17,10 +17,10 @@ MEMORY CONFIGURATION
   INFOC                 00001880   00000080  00000000  00000080  RWIX
   INFOB                 00001900   00000080  00000000  00000080  RWIX
   INFOA                 00001980   00000080  00000000  00000080  RWIX
-  RAM                   00001c00   00001000  00000106  00000efa  RWIX
+  RAM                   00001c00   00001000  000000f6  00000f0a  RWIX
   LEARAM                00002c00   00000ec8  00000ec8  00000000  RWIX
   LEASTACK              00003ac8   00000138  00000000  00000138  RWIX
-  FRAM                  00004000   0000bf80  00004cd8  000072a8  RWIX
+  FRAM                  00004000   0000bf80  00004cd2  000072ae  RWIX
   JTAGSIGNATURE         0000ff80   00000004  00000004  00000000  RWIX  ffff 
   BSLSIGNATURE          0000ff84   00000004  00000004  00000000  RWIX  ffff 
   IPESIGNATURE          0000ff88   00000008  00000008  00000000  RWIX  ffff 
@@ -80,7 +80,7 @@ MEMORY CONFIGURATION
   INT53                 0000fffa   00000002  00000002  00000000  RWIX
   INT54                 0000fffc   00000002  00000002  00000000  RWIX
   RESET                 0000fffe   00000002  00000002  00000000  RWIX
-  FRAM2                 00010000   00033ff8  00001596  00032a62  RWIX
+  FRAM2                 00010000   00033ff8  00001522  00032ad6  RWIX
 
 
 SECTION ALLOCATION MAP
@@ -88,44 +88,40 @@ SECTION ALLOCATION MAP
  output                                  attributes/
 section   page    origin      length       input sections
 --------  ----  ----------  ----------   ----------------
-.data      0    00001c00    00000062     UNINITIALIZED
+.data      0    00001c00    00000052     UNINITIALIZED
                   00001c00    00000008     main.obj (.data:ACTIVATION_MAT)
                   00001c08    00000008     main.obj (.data:BIAS_GRADIENT_MAT)
                   00001c10    00000008     main.obj (.data:BIAS_GRADIENT_TEMP_MAT)
                   00001c18    00000008     main.obj (.data:BIAS_MAT)
-                  00001c20    00000008     main.obj (.data:BIAS_TEMP_MAT)
-                  00001c28    00000008     main.obj (.data:INPUT_MAT)
-                  00001c30    00000008     main.obj (.data:INPUT_TEMP_MAT)
-                  00001c38    00000008     main.obj (.data:KERNEL_GRADIENT_MAT)
-                  00001c40    00000008     main.obj (.data:KERNEL_GRADIENT_TEMP_MAT)
-                  00001c48    00000008     main.obj (.data:KERNEL_MAT)
-                  00001c50    00000008     main.obj (.data:OUTPUT_MAT)
-                  00001c58    00000008     main.obj (.data:OUTPUT_TEMP_MAT)
-                  00001c60    00000002     main.obj (.data)
+                  00001c20    00000008     main.obj (.data:INPUT_MAT)
+                  00001c28    00000008     main.obj (.data:INPUT_T_MAT)
+                  00001c30    00000008     main.obj (.data:KERNEL_GRADIENT_MAT)
+                  00001c38    00000008     main.obj (.data:KERNEL_GRADIENT_TEMP_MAT)
+                  00001c40    00000008     main.obj (.data:KERNEL_MAT)
+                  00001c48    00000008     main.obj (.data:OUTPUT_MAT)
+                  00001c50    00000002     main.obj (.data)
 
 .TI.persistent 
-*          0    00004000    00004af8     
+*          0    00004000    00004b4c     
                   00004000    00004000     main.obj (.TI.persistent:X)
                   00008000    00000280     main.obj (.TI.persistent:KERNEL)
                   00008280    00000280     main.obj (.TI.persistent:KERNEL_GRADIENT)
                   00008500    00000280     main.obj (.TI.persistent:KERNEL_GRADIENT_TEMP)
                   00008780    00000200     main.obj (.TI.persistent:Y)
-                  00008980    00000080     main.obj (.TI.persistent:INPUT_TEMP)
-                  00008a00    00000040     main.obj (.TI.persistent:INPUT)
-                  00008a40    00000028     main.obj (.TI.persistent:BIAS_TEMP)
-                  00008a68    00000028     main.obj (.TI.persistent:OUTPUT_TEMP)
-                  00008a90    00000014     main.obj (.TI.persistent:ACTIVATION)
-                  00008aa4    00000014     main.obj (.TI.persistent:BIAS)
-                  00008ab8    00000014     main.obj (.TI.persistent:BIAS_GRADIENT)
-                  00008acc    00000014     main.obj (.TI.persistent:BIAS_GRADIENT_TEMP)
-                  00008ae0    00000014     main.obj (.TI.persistent:OUTPUT)
-                  00008af4    00000004     main.obj (.TI.persistent)
+                  00008980    00000080     main.obj (.TI.persistent:INPUT)
+                  00008a00    00000080     main.obj (.TI.persistent:INPUT_T)
+                  00008a80    00000028     main.obj (.TI.persistent:ACTIVATION)
+                  00008aa8    00000028     main.obj (.TI.persistent:BIAS)
+                  00008ad0    00000028     main.obj (.TI.persistent:BIAS_GRADIENT)
+                  00008af8    00000028     main.obj (.TI.persistent:BIAS_GRADIENT_TEMP)
+                  00008b20    00000028     main.obj (.TI.persistent:OUTPUT)
+                  00008b48    00000004     main.obj (.TI.persistent)
 
 .binit     0    00004000    00000000     
 
-.cio       0    00008af8    00000000     UNINITIALIZED
+.cio       0    00008b4c    00000000     UNINITIALIZED
 
-.sysmem    0    00008af8    00000000     UNINITIALIZED
+.sysmem    0    00008b4c    00000000     UNINITIALIZED
 
 .ipestruct 
 *          0    00008c00    00000000     UNINITIALIZED
@@ -138,13 +134,13 @@ section   page    origin      length       input sections
 .ipe:_isr 
 *          0    00008c00    00000000     UNINITIALIZED
 
-.cinit     0    00008c68    00000070     
-                  00008c68    0000003f     (.cinit..data.load) [load image, compression = lzss]
-                  00008ca7    00000001     --HOLE-- [fill = 0]
-                  00008ca8    0000000c     (__TI_handler_table)
-                  00008cb4    00000006     (.cinit..bss.load) [load image, compression = zero_init]
-                  00008cba    00000006     (.cinit..leaRAM.load) [load image, compression = zero_init]
-                  00008cc0    00000018     (__TI_cinit_table)
+.cinit     0    00008c68    0000006a     
+                  00008c68    00000039     (.cinit..data.load) [load image, compression = lzss]
+                  00008ca1    00000001     --HOLE-- [fill = 0]
+                  00008ca2    0000000c     (__TI_handler_table)
+                  00008cae    00000006     (.cinit..bss.load) [load image, compression = zero_init]
+                  00008cb4    00000006     (.cinit..leaRAM.load) [load image, compression = zero_init]
+                  00008cba    00000018     (__TI_cinit_table)
 
 .init_array 
 *          0    00004000    00000000     UNINITIALIZED
@@ -155,9 +151,9 @@ section   page    origin      length       input sections
                   00008c1c    0000001c     msp_lea_isr.obj (.text:_isr:msp_lea_isr)
                   00008c38    00000008     rts430x_lc_ld_eabi.lib : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
 
-.bss       0    00001c62    00000004     UNINITIALIZED
-                  00001c62    00000002     (.common:msp_lea_ifg)
-                  00001c64    00000002     (.common:msp_lea_locked)
+.bss       0    00001c52    00000004     UNINITIALIZED
+                  00001c52    00000002     (.common:msp_lea_ifg)
+                  00001c54    00000002     (.common:msp_lea_locked)
 
 .stack     0    00002b60    000000a0     UNINITIALIZED
                   00002b60    00000004     rts430x_lc_ld_eabi.lib : boot.c.obj (.stack)
@@ -306,68 +302,68 @@ SYSNMI     0    0000fffc    00000002
                   00008c60    00000004     layers.obj (.const)
                   00008c64    00000004     matrix_ops.obj (.const)
 
-.text      0    00010000    00001596     
-                  00010000    000002b8     main.obj (.text:main)
-                  000102b8    000001e0     msp_shift_q15.obj (.text:msp_shift_q15)
-                  00010498    000001ce     msp_matrix_mpy_q15.obj (.text:msp_matrix_mpy_q15)
-                  00010666    000001bc     matrix_ops.obj (.text:matrix_multiply_reduce)
-                  00010822    000001b0     matrix_ops.obj (.text:matrix_multiply)
-                  000109d2    00000134     msp_copy_q15.obj (.text:msp_copy_q15)
-                  00010b06    000000d4     matrix_ops.obj (.text:matrix_multiply_vanilla)
-                  00010bda    000000ba     matrix_ops.obj (.text:matrix_add)
-                  00010c94    0000008e     matrix_ops.obj (.text:softmax)
-                  00010d22    0000008c     trainable.obj (.text:cce_kernel_gradient)
-                  00010dae    0000008a     trainable.obj (.text:gradient_descent)
-                  00010e38    00000078     rts430x_lc_ld_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit_hold_wdt:__TI_auto_init_nobinit_nopinit_hold_wdt)
-                  00010eb0    00000076                            : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
-                  00010f26    0000006e     init.obj (.text:init_gpio)
-                  00010f94    00000062     matrix_ops.obj (.text:scalar_product)
-                  00010ff6    00000060     matrix_ops.obj (.text:msp_checkStatus)
-                  00011056    0000005e     matrix_ops.obj (.text:apply_elementwise)
-                  000110b4    0000005e     trainable.obj (.text:cce_bias_gradient)
-                  00011112    00000058     rts430x_lc_ld_eabi.lib : div32u.asm.obj (.text)
-                  0001116a    0000004e     msp_lea_init.obj (.text:msp_lea_init)
-                  000111b8    00000048     fixed_point_ops.obj (.text:fp_exp)
-                  00011200    00000046     matrix_ops.obj (.text:argmax)
-                  00011246    00000040     rts430x_lc_ld_eabi.lib : div32s.asm.obj (.text)
-                  00011286    0000003e                            : asr32.asm.obj (.text:l_asr_const)
-                  000112c4    0000003c     fixed_point_ops.obj (.text:fp_ln)
-                  00011300    0000003c     rts430x_lc_ld_eabi.lib : memcpy.c.obj (.text:memcpy)
-                  0001133c    0000003a     layers.obj (.text:dense)
-                  00011376    0000003a     init.obj (.text:init_clock_system)
-                  000113b0    00000032     msp_matrix_shift_q15.obj (.text:msp_matrix_shift_q15)
-                  000113e2    0000002c     rts430x_lc_ld_eabi.lib : div16s.asm.obj (.text)
-                  0001140e    00000026     matrix_ops.obj (.text:dma_load)
-                  00011434    00000024     rts430x_lc_ld_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init)
-                  00011458    00000020     matrix_ops.obj (.text:matrix_neg)
-                  00011478    00000020     rts430x_lc_ld_eabi.lib : memset.c.obj (.text:memset)
-                  00011498    0000001e     fixed_point_ops.obj (.text:fp_div)
-                  000114b6    0000001c     rts430x_lc_ld_eabi.lib : mult1632_f5hw.asm.obj (.text:__mpysl)
-                  000114d2    00000018     trainable.obj (.text:cce_loss)
-                  000114ea    00000018     rts430x_lc_ld_eabi.lib : mult16_f5hw.asm.obj (.text)
-                  00011502    00000016                            : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
-                  00011518    00000016                            : div16u.asm.obj (.text)
-                  0001152e    00000012     fixed_point_ops.obj (.text:fp_mul)
-                  00011540    00000010     fixed_point_ops.obj (.text:int_to_fp)
-                  00011550    00000010     rts430x_lc_ld_eabi.lib : asr32.asm.obj (.text:l_asr)
-                  00011560    00000010                            : lsl32.asm.obj (.text:l_lsl)
-                  00011570    0000000a                            : asr16.asm.obj (.text)
-                  0001157a    0000000a                            : lsl16.asm.obj (.text)
-                  00011584    00000006                            : exit.c.obj (.text:abort)
-                  0001158a    00000004                            : pre_init.c.obj (.text:_system_pre_init)
-                  0001158e    00000004     fixed_point_ops.obj (.text:fp_add)
-                  00011592    00000002     rts430x_lc_ld_eabi.lib : startup.c.obj (.text:_system_post_cinit)
-                  00011594    00000002     fixed_point_ops.obj (.text:fp_linear)
+.text      0    00010000    00001522     
+                  00010000    00000248     main.obj (.text:main)
+                  00010248    000001e0     msp_shift_q15.obj (.text:msp_shift_q15)
+                  00010428    000001ce     msp_matrix_mpy_q15.obj (.text:msp_matrix_mpy_q15)
+                  000105f6    000001bc     matrix_ops.obj (.text:matrix_multiply_reduce)
+                  000107b2    000001b0     matrix_ops.obj (.text:matrix_multiply)
+                  00010962    00000134     msp_copy_q15.obj (.text:msp_copy_q15)
+                  00010a96    000000d4     matrix_ops.obj (.text:matrix_multiply_vanilla)
+                  00010b6a    000000ba     matrix_ops.obj (.text:matrix_add)
+                  00010c24    00000098     matrix_ops.obj (.text:softmax)
+                  00010cbc    0000008a     trainable.obj (.text:gradient_descent)
+                  00010d46    0000007a     trainable.obj (.text:cce_kernel_gradient)
+                  00010dc0    00000078     rts430x_lc_ld_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit_hold_wdt:__TI_auto_init_nobinit_nopinit_hold_wdt)
+                  00010e38    00000076                            : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00010eae    0000006e     init.obj (.text:init_gpio)
+                  00010f1c    00000064     trainable.obj (.text:cce_bias_gradient)
+                  00010f80    00000062     matrix_ops.obj (.text:scalar_product)
+                  00010fe2    00000060     matrix_ops.obj (.text:msp_checkStatus)
+                  00011042    0000005e     matrix_ops.obj (.text:apply_elementwise)
+                  000110a0    00000058     rts430x_lc_ld_eabi.lib : div32u.asm.obj (.text)
+                  000110f8    0000004e     msp_lea_init.obj (.text:msp_lea_init)
+                  00011146    00000048     fixed_point_ops.obj (.text:fp_exp)
+                  0001118e    00000046     matrix_ops.obj (.text:argmax)
+                  000111d4    00000040     rts430x_lc_ld_eabi.lib : div32s.asm.obj (.text)
+                  00011214    0000003e                            : asr32.asm.obj (.text:l_asr_const)
+                  00011252    0000003c     fixed_point_ops.obj (.text:fp_ln)
+                  0001128e    0000003c     rts430x_lc_ld_eabi.lib : memcpy.c.obj (.text:memcpy)
+                  000112ca    0000003a     init.obj (.text:init_clock_system)
+                  00011304    00000036     layers.obj (.text:dense)
+                  0001133a    00000032     msp_matrix_shift_q15.obj (.text:msp_matrix_shift_q15)
+                  0001136c    0000002c     rts430x_lc_ld_eabi.lib : div16s.asm.obj (.text)
+                  00011398    00000026     matrix_ops.obj (.text:dma_load)
+                  000113be    00000024     rts430x_lc_ld_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init)
+                  000113e2    00000020     matrix_ops.obj (.text:matrix_neg)
+                  00011402    00000020     rts430x_lc_ld_eabi.lib : memset.c.obj (.text:memset)
+                  00011422    0000001e     fixed_point_ops.obj (.text:fp_div)
+                  00011440    0000001c     rts430x_lc_ld_eabi.lib : mult1632_f5hw.asm.obj (.text:__mpysl)
+                  0001145c    0000001a     trainable.obj (.text:cce_loss)
+                  00011476    00000018     rts430x_lc_ld_eabi.lib : mult16_f5hw.asm.obj (.text)
+                  0001148e    00000016                            : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  000114a4    00000016                            : div16u.asm.obj (.text)
+                  000114ba    00000012     fixed_point_ops.obj (.text:fp_mul)
+                  000114cc    00000010     fixed_point_ops.obj (.text:int_to_fp)
+                  000114dc    00000010     rts430x_lc_ld_eabi.lib : asr32.asm.obj (.text:l_asr)
+                  000114ec    00000010                            : lsl32.asm.obj (.text:l_lsl)
+                  000114fc    0000000a                            : asr16.asm.obj (.text)
+                  00011506    0000000a                            : lsl16.asm.obj (.text)
+                  00011510    00000006                            : exit.c.obj (.text:abort)
+                  00011516    00000004                            : pre_init.c.obj (.text:_system_pre_init)
+                  0001151a    00000004     fixed_point_ops.obj (.text:fp_add)
+                  0001151e    00000002     rts430x_lc_ld_eabi.lib : startup.c.obj (.text:_system_post_cinit)
+                  00011520    00000002     fixed_point_ops.obj (.text:fp_linear)
 
 MODULE SUMMARY
 
        Module                       code   ro data   rw data
        ------                       ----   -------   -------
     ./
-       main.obj                     696    0         19290  
+       main.obj                     584    0         19358  
        init.obj                     168    0         0      
     +--+----------------------------+------+---------+---------+
-       Total:                       864    0         19290  
+       Total:                       752    0         19358  
                                                             
     ./DSPLib/source/lea/
        msp_lea_init.obj             78     0         0      
@@ -393,16 +389,16 @@ MODULE SUMMARY
        Total:                       480    32        0      
                                                             
     ./layers/
-       trainable.obj                396    0         0      
-       layers.obj                   58     4         0      
+       trainable.obj                386    0         0      
+       layers.obj                   54     4         0      
     +--+----------------------------+------+---------+---------+
-       Total:                       454    4         0      
+       Total:                       440    4         0      
                                                             
     ./math/
-       matrix_ops.obj               1844   4         3784   
+       matrix_ops.obj               1854   4         3784   
        fixed_point_ops.obj          202    0         0      
     +--+----------------------------+------+---------+---------+
-       Total:                       2046   4         3784   
+       Total:                       2056   4         3784   
                                                             
     /Applications/ti/ccs1250/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/lib/rts430x_lc_ld_eabi.lib
        autoinit.c.obj               120    0         0      
@@ -466,22 +462,22 @@ MODULE SUMMARY
        Total:                       820    74        0      
                                                             
        Stack:                       0      0         160    
-       Linker Generated:            0      111       0      
+       Linker Generated:            0      105       0      
     +--+----------------------------+------+---------+---------+
-       Grand Total:                 5590   227       23238  
+       Grand Total:                 5474   221       23306  
 
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 00008cc0 records: 3, size/record: 8, table size: 24
-	.data: load addr=00008c68, load size=0000003f bytes, run addr=00001c00, run size=00000062 bytes, compression=lzss
-	.bss: load addr=00008cb4, load size=00000006 bytes, run addr=00001c62, run size=00000004 bytes, compression=zero_init
-	.leaRAM: load addr=00008cba, load size=00000006 bytes, run addr=00002c00, run size=00000ec8 bytes, compression=zero_init
+__TI_cinit_table @ 00008cba records: 3, size/record: 8, table size: 24
+	.data: load addr=00008c68, load size=00000039 bytes, run addr=00001c00, run size=00000052 bytes, compression=lzss
+	.bss: load addr=00008cae, load size=00000006 bytes, run addr=00001c52, run size=00000004 bytes, compression=zero_init
+	.leaRAM: load addr=00008cb4, load size=00000006 bytes, run addr=00002c00, run size=00000ec8 bytes, compression=zero_init
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 00008ca8 records: 3, size/record: 4, table size: 12
+__TI_handler_table @ 00008ca2 records: 3, size/record: 4, table size: 12
 	index: 0, handler: __TI_zero_init
 	index: 1, handler: __TI_decompress_lzss
 	index: 2, handler: __TI_decompress_none
@@ -752,7 +748,7 @@ address   name
 000004bc  BIN2BCD                                
 000004bd  BIN2BCD_H                              
 000004bc  BIN2BCD_L                              
-00011584  C$$EXIT                                
+00011510  C$$EXIT                                
 0000043e  CAPTIO0CTL                             
 0000043f  CAPTIO0CTL_H                           
 0000043e  CAPTIO0CTL_L                           
@@ -2036,15 +2032,15 @@ address   name
 0000015c  WDTCTL_L                               
 00002c00  __STACK_END                            
 000000a0  __STACK_SIZE                           
-00008cc0  __TI_CINIT_Base                        
-00008cd8  __TI_CINIT_Limit                       
-00008cd8  __TI_CINIT_Warm                        
-00008ca8  __TI_Handler_Table_Base                
-00008cb4  __TI_Handler_Table_Limit               
+00008cba  __TI_CINIT_Base                        
+00008cd2  __TI_CINIT_Limit                       
+00008cd2  __TI_CINIT_Warm                        
+00008ca2  __TI_Handler_Table_Base                
+00008cae  __TI_Handler_Table_Limit               
 00008c38  __TI_ISR_TRAP                          
-00010e38  __TI_auto_init_nobinit_nopinit_hold_wdt
-00010eb0  __TI_decompress_lzss                   
-00011502  __TI_decompress_none                   
+00010dc0  __TI_auto_init_nobinit_nopinit_hold_wdt
+00010e38  __TI_decompress_lzss                   
+0001148e  __TI_decompress_none                   
 0000ffb4  __TI_int18                             
 0000ffb6  __TI_int19                             
 0000ffb8  __TI_int20                             
@@ -2085,83 +2081,83 @@ address   name
 ffffffff  __TI_pprof_out_hndl                    
 ffffffff  __TI_prof_data_size                    
 ffffffff  __TI_prof_data_start                   
-00011434  __TI_zero_init                         
+000113be  __TI_zero_init                         
 ffffffff  __c_args__                             
-000113e2  __mspabi_divi                          
-00011246  __mspabi_divli                         
-00011518  __mspabi_divu                          
-00011112  __mspabi_divul                         
-000114ea  __mspabi_mpyi_f5hw                     
-000114b6  __mspabi_mpysl_f5hw                    
-000113e2  __mspabi_remi                          
-00011246  __mspabi_remli                         
-00011518  __mspabi_remu                          
-00011112  __mspabi_remul                         
-0001157a  __mspabi_slli                          
-00011560  __mspabi_slll                          
-00011570  __mspabi_srai                          
-00011550  __mspabi_sral                          
-000112be  __mspabi_sral_1                        
-0001129a  __mspabi_sral_10                       
-00011296  __mspabi_sral_11                       
-00011292  __mspabi_sral_12                       
-0001128e  __mspabi_sral_13                       
-0001128a  __mspabi_sral_14                       
-00011286  __mspabi_sral_15                       
-000112ba  __mspabi_sral_2                        
-000112b6  __mspabi_sral_3                        
-000112b2  __mspabi_sral_4                        
-000112ae  __mspabi_sral_5                        
-000112aa  __mspabi_sral_6                        
-000112a6  __mspabi_sral_7                        
-000112a2  __mspabi_sral_8                        
-0001129e  __mspabi_sral_9                        
+0001136c  __mspabi_divi                          
+000111d4  __mspabi_divli                         
+000114a4  __mspabi_divu                          
+000110a0  __mspabi_divul                         
+00011476  __mspabi_mpyi_f5hw                     
+00011440  __mspabi_mpysl_f5hw                    
+0001136c  __mspabi_remi                          
+000111d4  __mspabi_remli                         
+000114a4  __mspabi_remu                          
+000110a0  __mspabi_remul                         
+00011506  __mspabi_slli                          
+000114ec  __mspabi_slll                          
+000114fc  __mspabi_srai                          
+000114dc  __mspabi_sral                          
+0001124c  __mspabi_sral_1                        
+00011228  __mspabi_sral_10                       
+00011224  __mspabi_sral_11                       
+00011220  __mspabi_sral_12                       
+0001121c  __mspabi_sral_13                       
+00011218  __mspabi_sral_14                       
+00011214  __mspabi_sral_15                       
+00011248  __mspabi_sral_2                        
+00011244  __mspabi_sral_3                        
+00011240  __mspabi_sral_4                        
+0001123c  __mspabi_sral_5                        
+00011238  __mspabi_sral_6                        
+00011234  __mspabi_sral_7                        
+00011230  __mspabi_sral_8                        
+0001122c  __mspabi_sral_9                        
 00008c00  _c_int00_noargs                        
 0000fffe  _reset_vector                          
 00002b60  _stack                                 
-00011592  _system_post_cinit                     
-0001158a  _system_pre_init                       
-00011584  abort                                  
-00011056  apply_elementwise                      
-00011200  argmax                                 
-000110b4  cce_bias_gradient                      
-00010d22  cce_kernel_gradient                    
-000114d2  cce_loss                               
-0001133c  dense                                  
-0001140e  dma_load                               
-0001158e  fp_add                                 
-00011498  fp_div                                 
-000111b8  fp_exp                                 
-00011594  fp_linear                              
-000112c4  fp_ln                                  
-0001152e  fp_mul                                 
+0001151e  _system_post_cinit                     
+00011516  _system_pre_init                       
+00011510  abort                                  
+00011042  apply_elementwise                      
+0001118e  argmax                                 
+00010f1c  cce_bias_gradient                      
+00010d46  cce_kernel_gradient                    
+0001145c  cce_loss                               
+00011304  dense                                  
+00011398  dma_load                               
+0001151a  fp_add                                 
+00011422  fp_div                                 
+00011146  fp_exp                                 
+00011520  fp_linear                              
+00011252  fp_ln                                  
+000114ba  fp_mul                                 
 00008c00  fram_ipe_end                           
 00008c00  fram_ipe_start                         
 00004000  fram_rw_start                          
 00008c00  fram_rx_start                          
-00010dae  gradient_descent                       
-00011376  init_clock_system                      
-00010f26  init_gpio                              
-00011540  int_to_fp                              
+00010cbc  gradient_descent                       
+000112ca  init_clock_system                      
+00010eae  init_gpio                              
+000114cc  int_to_fp                              
 00010000  main                                   
-00010bda  matrix_add                             
-00010822  matrix_multiply                        
-00010666  matrix_multiply_reduce                 
-00010b06  matrix_multiply_vanilla                
-00011458  matrix_neg                             
-00011300  memcpy                                 
-00011478  memset                                 
-000109d2  msp_copy_q15                           
-00001c62  msp_lea_ifg                            
-0001116a  msp_lea_init                           
+00010b6a  matrix_add                             
+000107b2  matrix_multiply                        
+000105f6  matrix_multiply_reduce                 
+00010a96  matrix_multiply_vanilla                
+000113e2  matrix_neg                             
+0001128e  memcpy                                 
+00011402  memset                                 
+00010962  msp_copy_q15                           
+00001c52  msp_lea_ifg                            
+000110f8  msp_lea_init                           
 00008c1c  msp_lea_isr                            
-00001c64  msp_lea_locked                         
-00010498  msp_matrix_mpy_q15                     
-000113b0  msp_matrix_shift_q15                   
-000102b8  msp_shift_q15                          
+00001c54  msp_lea_locked                         
+00010428  msp_matrix_mpy_q15                     
+0001133a  msp_matrix_shift_q15                   
+00010248  msp_shift_q15                          
 00008c40  msp_shift_right_factor_q15             
-00010f94  scalar_product                         
-00010c94  softmax                                
+00010f80  scalar_product                         
+00010c24  softmax                                
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -3711,8 +3707,8 @@ address   name
 00000afc  LEAIV                                  
 00000afc  LEAIVL                                 
 00000afe  LEAIVH                                 
-00001c62  msp_lea_ifg                            
-00001c64  msp_lea_locked                         
+00001c52  msp_lea_ifg                            
+00001c54  msp_lea_locked                         
 00002b60  _stack                                 
 00002c00  __STACK_END                            
 00004000  fram_rw_start                          
@@ -3723,11 +3719,11 @@ address   name
 00008c1c  msp_lea_isr                            
 00008c38  __TI_ISR_TRAP                          
 00008c40  msp_shift_right_factor_q15             
-00008ca8  __TI_Handler_Table_Base                
-00008cb4  __TI_Handler_Table_Limit               
-00008cc0  __TI_CINIT_Base                        
-00008cd8  __TI_CINIT_Limit                       
-00008cd8  __TI_CINIT_Warm                        
+00008ca2  __TI_Handler_Table_Base                
+00008cae  __TI_Handler_Table_Limit               
+00008cba  __TI_CINIT_Base                        
+00008cd2  __TI_CINIT_Limit                       
+00008cd2  __TI_CINIT_Warm                        
 0000ffb4  __TI_int18                             
 0000ffb6  __TI_int19                             
 0000ffb8  __TI_int20                             
@@ -3767,74 +3763,74 @@ address   name
 0000fffc  __TI_int54                             
 0000fffe  _reset_vector                          
 00010000  main                                   
-000102b8  msp_shift_q15                          
-00010498  msp_matrix_mpy_q15                     
-00010666  matrix_multiply_reduce                 
-00010822  matrix_multiply                        
-000109d2  msp_copy_q15                           
-00010b06  matrix_multiply_vanilla                
-00010bda  matrix_add                             
-00010c94  softmax                                
-00010d22  cce_kernel_gradient                    
-00010dae  gradient_descent                       
-00010e38  __TI_auto_init_nobinit_nopinit_hold_wdt
-00010eb0  __TI_decompress_lzss                   
-00010f26  init_gpio                              
-00010f94  scalar_product                         
-00011056  apply_elementwise                      
-000110b4  cce_bias_gradient                      
-00011112  __mspabi_divul                         
-00011112  __mspabi_remul                         
-0001116a  msp_lea_init                           
-000111b8  fp_exp                                 
-00011200  argmax                                 
-00011246  __mspabi_divli                         
-00011246  __mspabi_remli                         
-00011286  __mspabi_sral_15                       
-0001128a  __mspabi_sral_14                       
-0001128e  __mspabi_sral_13                       
-00011292  __mspabi_sral_12                       
-00011296  __mspabi_sral_11                       
-0001129a  __mspabi_sral_10                       
-0001129e  __mspabi_sral_9                        
-000112a2  __mspabi_sral_8                        
-000112a6  __mspabi_sral_7                        
-000112aa  __mspabi_sral_6                        
-000112ae  __mspabi_sral_5                        
-000112b2  __mspabi_sral_4                        
-000112b6  __mspabi_sral_3                        
-000112ba  __mspabi_sral_2                        
-000112be  __mspabi_sral_1                        
-000112c4  fp_ln                                  
-00011300  memcpy                                 
-0001133c  dense                                  
-00011376  init_clock_system                      
-000113b0  msp_matrix_shift_q15                   
-000113e2  __mspabi_divi                          
-000113e2  __mspabi_remi                          
-0001140e  dma_load                               
-00011434  __TI_zero_init                         
-00011458  matrix_neg                             
-00011478  memset                                 
-00011498  fp_div                                 
-000114b6  __mspabi_mpysl_f5hw                    
-000114d2  cce_loss                               
-000114ea  __mspabi_mpyi_f5hw                     
-00011502  __TI_decompress_none                   
-00011518  __mspabi_divu                          
-00011518  __mspabi_remu                          
-0001152e  fp_mul                                 
-00011540  int_to_fp                              
-00011550  __mspabi_sral                          
-00011560  __mspabi_slll                          
-00011570  __mspabi_srai                          
-0001157a  __mspabi_slli                          
-00011584  C$$EXIT                                
-00011584  abort                                  
-0001158a  _system_pre_init                       
-0001158e  fp_add                                 
-00011592  _system_post_cinit                     
-00011594  fp_linear                              
+00010248  msp_shift_q15                          
+00010428  msp_matrix_mpy_q15                     
+000105f6  matrix_multiply_reduce                 
+000107b2  matrix_multiply                        
+00010962  msp_copy_q15                           
+00010a96  matrix_multiply_vanilla                
+00010b6a  matrix_add                             
+00010c24  softmax                                
+00010cbc  gradient_descent                       
+00010d46  cce_kernel_gradient                    
+00010dc0  __TI_auto_init_nobinit_nopinit_hold_wdt
+00010e38  __TI_decompress_lzss                   
+00010eae  init_gpio                              
+00010f1c  cce_bias_gradient                      
+00010f80  scalar_product                         
+00011042  apply_elementwise                      
+000110a0  __mspabi_divul                         
+000110a0  __mspabi_remul                         
+000110f8  msp_lea_init                           
+00011146  fp_exp                                 
+0001118e  argmax                                 
+000111d4  __mspabi_divli                         
+000111d4  __mspabi_remli                         
+00011214  __mspabi_sral_15                       
+00011218  __mspabi_sral_14                       
+0001121c  __mspabi_sral_13                       
+00011220  __mspabi_sral_12                       
+00011224  __mspabi_sral_11                       
+00011228  __mspabi_sral_10                       
+0001122c  __mspabi_sral_9                        
+00011230  __mspabi_sral_8                        
+00011234  __mspabi_sral_7                        
+00011238  __mspabi_sral_6                        
+0001123c  __mspabi_sral_5                        
+00011240  __mspabi_sral_4                        
+00011244  __mspabi_sral_3                        
+00011248  __mspabi_sral_2                        
+0001124c  __mspabi_sral_1                        
+00011252  fp_ln                                  
+0001128e  memcpy                                 
+000112ca  init_clock_system                      
+00011304  dense                                  
+0001133a  msp_matrix_shift_q15                   
+0001136c  __mspabi_divi                          
+0001136c  __mspabi_remi                          
+00011398  dma_load                               
+000113be  __TI_zero_init                         
+000113e2  matrix_neg                             
+00011402  memset                                 
+00011422  fp_div                                 
+00011440  __mspabi_mpysl_f5hw                    
+0001145c  cce_loss                               
+00011476  __mspabi_mpyi_f5hw                     
+0001148e  __TI_decompress_none                   
+000114a4  __mspabi_divu                          
+000114a4  __mspabi_remu                          
+000114ba  fp_mul                                 
+000114cc  int_to_fp                              
+000114dc  __mspabi_sral                          
+000114ec  __mspabi_slll                          
+000114fc  __mspabi_srai                          
+00011506  __mspabi_slli                          
+00011510  C$$EXIT                                
+00011510  abort                                  
+00011516  _system_pre_init                       
+0001151a  fp_add                                 
+0001151e  _system_post_cinit                     
+00011520  fp_linear                              
 ffffffff  __TI_pprof_out_hndl                    
 ffffffff  __TI_prof_data_size                    
 ffffffff  __TI_prof_data_start                   

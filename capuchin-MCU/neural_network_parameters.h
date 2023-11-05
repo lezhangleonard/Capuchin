@@ -43,20 +43,16 @@ static dtype KERNEL_GRADIENT_TEMP[320] = {0};
 static matrix KERNEL_GRADIENT_TEMP_MAT = {.data=KERNEL_GRADIENT_TEMP, .numRows=10, .numCols=32};
 
 #pragma PERSISTENT(BIAS)
-static dtype BIAS[10] = {28, 14, 41, 48, 23, 32, 8, 21, 43, 1};
-static matrix BIAS_MAT = {.data=BIAS, .numRows=10, .numCols=1};
-
-#pragma PERSISTENT(BIAS_TEMP)
-static dtype BIAS_TEMP[20] = {0};
-static matrix BIAS_TEMP_MAT = {.data=BIAS_TEMP, .numRows=10, .numCols=2};
+static dtype BIAS[20] = {28, 0, 14, 0, 41, 0, 48, 0, 23, 0, 32, 0, 8, 0, 21, 0, 43, 0, 1, 0};
+static matrix BIAS_MAT = {.data=BIAS, .numRows=10, .numCols=2};
 
 #pragma PERSISTENT(BIAS_GRADIENT)
-static dtype BIAS_GRADIENT[10] = {0};
-static matrix BIAS_GRADIENT_MAT = {.data=BIAS_GRADIENT, .numRows=10, .numCols=1};
+static dtype BIAS_GRADIENT[20] = {0};
+static matrix BIAS_GRADIENT_MAT = {.data=BIAS_GRADIENT, .numRows=10, .numCols=2};
 
 #pragma PERSISTENT(BIAS_GRADIENT_TEMP)
-static dtype BIAS_GRADIENT_TEMP[10] = {0};
-static matrix BIAS_GRADIENT_TEMP_MAT = {.data=BIAS_GRADIENT_TEMP, .numRows=10, .numCols=1};
+static dtype BIAS_GRADIENT_TEMP[20] = {0};
+static matrix BIAS_GRADIENT_TEMP_MAT = {.data=BIAS_GRADIENT_TEMP, .numRows=10, .numCols=2};
 
 #pragma PERSISTENT(LOSS)
 static dtype LOSS = 0;
@@ -65,24 +61,22 @@ static dtype LOSS = 0;
 static dtype TARGET = 0;
 
 #pragma PERSISTENT(INPUT)
-static dtype INPUT[32] = {0};
-static matrix INPUT_MAT = {.data=INPUT, .numRows=32, .numCols=1};
+static dtype INPUT[64] = {0};
+static matrix INPUT_MAT = {.data=INPUT, .numRows=32, .numCols=2};
 
-#pragma PERSISTENT(INPUT_TEMP)
-static dtype INPUT_TEMP[64] = {0};
-static matrix INPUT_TEMP_MAT = {.data=INPUT_TEMP, .numRows=32, .numCols=2};
+#pragma PERSISTENT(INPUT_T)
+static dtype INPUT_T[64] = {0};
+static matrix INPUT_T_MAT = {.data=INPUT_T, .numRows=2, .numCols=32};
+
 
 #pragma PERSISTENT(OUTPUT)
-static dtype OUTPUT[10] = {0};
-static matrix OUTPUT_MAT = {.data=OUTPUT, .numRows=10, .numCols=1};
+static dtype OUTPUT[20] = {0};
+static matrix OUTPUT_MAT = {.data=OUTPUT, .numRows=10, .numCols=2};
 
-#pragma PERSISTENT(OUTPUT_TEMP)
-static dtype OUTPUT_TEMP[20] = {0};
-static matrix OUTPUT_TEMP_MAT = {.data=OUTPUT_TEMP, .numRows=10, .numCols=2};
 
 #pragma PERSISTENT(ACTIVATION)
-static dtype ACTIVATION[10] = {0};
-static matrix ACTIVATION_MAT = {.data=ACTIVATION, .numRows=10, .numCols=1};
+static dtype ACTIVATION[20] = {0};
+static matrix ACTIVATION_MAT = {.data=ACTIVATION, .numRows=10, .numCols=2};
 
 static uint16_t LABEL = 0;
 

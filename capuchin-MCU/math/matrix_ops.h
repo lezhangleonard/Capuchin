@@ -32,6 +32,9 @@
 //DSPLIB_DATA(MULTIPLY_BUFFER, 4);
 //static dtype MULTIPLY_BUFFER[1600];
 
+matrix *matrix_multiply_vanilla(matrix *result, matrix *mat1, matrix *mat2, uint16_t precision);
+matrix *matrix_multiply(matrix *result, matrix *mat1, matrix *mat2, uint16_t precision);
+matrix *matrix_multiply_reduce(matrix *result, matrix *mat1, matrix *mat2, uint16_t precision);
 matrix *filter_LEA(matrix* result, matrix *input, matrix *filter, uint16_t precision, uint16_t stride_numRows, uint16_t stride_numCols);
 // Standard matrix operations
 matrix *matrix_add(matrix *result, matrix *mat1, matrix *mat2);

@@ -18,36 +18,27 @@ void main(void){
 
     uint16_t i, j, m, lr = 6;
 
-    for (i = 0; i < 32; i ++){
+    for (i = 0; i < 16; i ++){
             memset(KERNEL_GRADIENT, 0, sizeof(dtype) * 320);
             memset(BIAS_GRADIENT, 0, sizeof(dtype) * 10);
             LOSS = 0;
 
             for (j = 0; j < 128; j ++){
 
-                memcpy(INPUT, &X[(j << 5)], 32);
                 memcpy(&TARGET, &Y[j], 1);
 
                 for (m = 0; m < 32; m ++){
-                    INPUT_TEMP[m << 1] = INPUT[m];
+                    INPUT[m << 1] = X[(j<<5) + m];
+                    INPUT_T[m] = X[(j<<5) + m];
                 }
 
-                for (m = 0; m < 10; m ++){
-                    BIAS_TEMP[m << 1] = BIAS[m];
-                }
-
-
-                dense(&OUTPUT_TEMP_MAT, &INPUT_TEMP_MAT, &KERNEL_MAT, &BIAS_TEMP_MAT, &fp_linear, FIXED_POINT_PRECISION);
-
-                for (m = 0; m < 10; m ++){
-                    OUTPUT[m] = OUTPUT_TEMP[m << 1];
-                }
+                dense(&OUTPUT_MAT, &INPUT_MAT, &KERNEL_MAT, &BIAS_MAT, &fp_linear, FIXED_POINT_PRECISION);
 
                 softmax(&ACTIVATION_MAT, &OUTPUT_MAT, FIXED_POINT_PRECISION, 7);
 
                 LOSS += (cce_loss(&ACTIVATION_MAT, TARGET, FIXED_POINT_PRECISION) >> 4);
 
-                cce_kernel_gradient(&KERNEL_GRADIENT_TEMP_MAT, &ACTIVATION_MAT, &INPUT_MAT, TARGET, 4, FIXED_POINT_PRECISION);
+                cce_kernel_gradient(&KERNEL_GRADIENT_TEMP_MAT, &ACTIVATION_MAT, &INPUT_T_MAT, TARGET, 4, FIXED_POINT_PRECISION);
                 cce_bias_gradient(&BIAS_GRADIENT_TEMP_MAT, &ACTIVATION_MAT, TARGET, 4, FIXED_POINT_PRECISION);
 
                 matrix_add(&KERNEL_GRADIENT_MAT, &KERNEL_GRADIENT_MAT, &KERNEL_GRADIENT_TEMP_MAT);
@@ -67,24 +58,14 @@ void main(void){
 
         for (j = 128; j < 160; j ++){
 
-
-            memcpy(INPUT, &X[(j << 5)], 32);
             memcpy(&TARGET, &Y[j], 1);
 
             for (m = 0; m < 32; m ++){
-                INPUT_TEMP[m << 1] = INPUT[m];
+                INPUT[m << 1] = X[(j<<5) + m];
+                INPUT_T[m] = X[(j<<5) + m];
             }
 
-            for (m = 0; m < 10; m ++){
-                BIAS_TEMP[m << 1] = BIAS[m];
-            }
-
-
-            dense(&OUTPUT_TEMP_MAT, &INPUT_TEMP_MAT, &KERNEL_MAT, &BIAS_TEMP_MAT, &fp_linear, FIXED_POINT_PRECISION);
-
-            for (m = 0; m < 10; m ++){
-                OUTPUT[m] = OUTPUT_TEMP[m << 1];
-            }
+            dense(&OUTPUT_MAT, &INPUT_MAT, &KERNEL_MAT, &BIAS_MAT, &fp_linear, FIXED_POINT_PRECISION);
 
             LABEL = argmax(&OUTPUT_MAT);
             __no_operation();
